@@ -52,16 +52,22 @@ export function InvestmentTable() {
               <TableCell>${investment.amount.toLocaleString()}</TableCell>
               <TableCell>
                 <Badge
-                  variant={investment.status === "COMPLETED" ? "success" : "secondary"}
+                  variant={
+                    investment.status === "COMPLETED" ? "default" : "secondary"
+                  }
                 >
                   {investment.status}
                 </Badge>
               </TableCell>
               <TableCell>
-                {formatDistanceToNow(investment.transactionDate, { addSuffix: true })}
+                {formatDistanceToNow(investment.transactionDate, {
+                  addSuffix: true,
+                })}
               </TableCell>
               <TableCell>
-                <Button variant="ghost" size="sm">View Details</Button>
+                <Button variant="ghost" size="sm">
+                  View Details
+                </Button>
               </TableCell>
             </TableRow>
           ))}

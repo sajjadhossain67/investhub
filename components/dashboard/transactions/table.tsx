@@ -59,16 +59,27 @@ export function TransactionTable() {
               <TableCell>
                 <Badge variant="outline">{tx.type}</Badge>
               </TableCell>
-              <TableCell className={tx.type === "WITHDRAWAL" ? "text-red-500" : "text-green-500"}>
-                {tx.type === "WITHDRAWAL" ? "-" : "+"}${tx.amount.toLocaleString()}
+              <TableCell
+                className={
+                  tx.type === "WITHDRAWAL" ? "text-red-500" : "text-green-500"
+                }
+              >
+                {tx.type === "WITHDRAWAL" ? "-" : "+"}$
+                {tx.amount.toLocaleString()}
               </TableCell>
               <TableCell>
-                <Badge variant={tx.status === "COMPLETED" ? "success" : "secondary"}>
+                <Badge
+                  variant={tx.status === "COMPLETED" ? "default" : "secondary"}
+                >
                   {tx.status}
                 </Badge>
               </TableCell>
-              <TableCell>{formatDistanceToNow(tx.date, { addSuffix: true })}</TableCell>
-              <TableCell className="max-w-[200px] truncate">{tx.description}</TableCell>
+              <TableCell>
+                {formatDistanceToNow(tx.date, { addSuffix: true })}
+              </TableCell>
+              <TableCell className="max-w-[200px] truncate">
+                {tx.description}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

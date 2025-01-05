@@ -1,6 +1,12 @@
 "use client";
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { formatDistanceToNow } from "date-fns";
@@ -37,9 +43,7 @@ export function IdeaCard({ idea }: IdeaCardProps) {
       <CardHeader>
         <div className="flex items-center justify-between">
           <Badge variant="secondary">{idea.category}</Badge>
-          <Badge 
-            variant={idea.status === "APPROVED" ? "success" : "secondary"}
-          >
+          <Badge variant={idea.status === "default" ? "outline" : "secondary"}>
             {idea.status}
           </Badge>
         </div>
@@ -55,16 +59,21 @@ export function IdeaCard({ idea }: IdeaCardProps) {
           <Progress value={progress} className="h-2" />
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Raised</span>
-            <span className="font-medium">${idea.currentAmount.toLocaleString()}</span>
+            <span className="font-medium">
+              ${idea.currentAmount.toLocaleString()}
+            </span>
           </div>
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Target</span>
-            <span className="font-medium">${idea.targetAmount.toLocaleString()}</span>
+            <span className="font-medium">
+              ${idea.targetAmount.toLocaleString()}
+            </span>
           </div>
         </div>
       </CardContent>
       <CardFooter className="text-sm text-muted-foreground">
-        Created by {idea.creator} • {formatDistanceToNow(idea.createdAt, { addSuffix: true })}
+        Created by {idea.creator} •{" "}
+        {formatDistanceToNow(idea.createdAt, { addSuffix: true })}
       </CardFooter>
     </Card>
   );
