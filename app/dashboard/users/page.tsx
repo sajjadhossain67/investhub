@@ -73,16 +73,16 @@ export default function UsersPage() {
                   </div>
                 </TableCell>
                 <TableCell>
-                  <Badge variant="outline">
-                    {user.role.replace("_", " ")}
-                  </Badge>
+                  <Badge variant="outline">{user.role.replace("_", " ")}</Badge>
                 </TableCell>
                 <TableCell>
-                  <Badge variant="success">{user.status}</Badge>
+                  <Badge variant="default">{user.status}</Badge>
                 </TableCell>
                 <TableCell>{user.email}</TableCell>
                 <TableCell>
-                  <Button variant="ghost" size="sm">Edit</Button>
+                  <Button variant="ghost" size="sm">
+                    Edit
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
